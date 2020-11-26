@@ -8,10 +8,10 @@ const router = express.Router()
 
 // При переходе на роут 'http://localhost:5000/api/auth/login',
 // будет вызван контроллер controller.login
-router.get('/login', controller.login)
+router.post('/login', controller.login)
 
 // При переходе на роут  'http://localhost:5000/api/auth/register'
 // будет вызван контроллер controller.register
-router.get('/register', controller.register)
+router.post('/register', controller.register)
 
 module.exports = router
