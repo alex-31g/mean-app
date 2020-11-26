@@ -1,11 +1,15 @@
 module.exports.login = (req, res) => {
+
+	// Обработчик запроса
 	res.status(200).json({
-		login: 'login from controller'
+		login: {
+			email: req.body.email,
+			password: req.body.password
+		}
 	})
+
 }
 
 module.exports.register = (req, res) => {
-	res.status(200).json({
-		register: 'register from controller'
-	})
+
 }
