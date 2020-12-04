@@ -2,6 +2,7 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const keys = require('../config/keys')
 const User = require('../models/user')
+const errorHandler = require('../utils/errorHandler')
 
 // РЕГИСТРАЦИЯ
 module.exports.register = async (req, res) => {
@@ -38,6 +39,7 @@ module.exports.register = async (req, res) => {
 		} catch(e) {
 			// Обработатываем ошибку
 			console.log(e)
+			errorHandler(res, e)
 		}
 		
 	}
