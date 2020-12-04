@@ -1,4 +1,5 @@
 const express = require('express')
+const passport = require('passport')
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const morgan = require('morgan')
@@ -11,6 +12,12 @@ const orderRoutes = require('./routes/order')
 const positionRoutes = require('./routes/position')
 
 const app = express()
+
+app.use(passport.initialize())
+
+// Подключаем файл в котором будет описана логика защиты роутов
+// Конструкция "require('./middleware/passport')" вернет ф-цию, которую мы вызовем, передав в неё passport:
+require('./middleware/passport')(passport)
 
 // Говорим morgan'у, что мы в режиме разработки
 app.use(morgan('dev'))
